@@ -1,0 +1,14 @@
+*,
+*::after,
+*::before {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+body {
+  color: #333;
+  background-color: #f3f3f3;
+  display: flex;
+  justify-content: center;
+}
