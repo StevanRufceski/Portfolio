@@ -1,5 +1,5 @@
 // -----kreiranje katalozi-----
-function createSectionStructure (manufacturer, catalog, popover) {
+function createSectionStructure(manufacturer, catalog, popover) {
     let newSection = document.createElement(`section`);
     newSection.id = idFromTitle(manufacturer);
     document.getElementsByClassName(`catalogsStart`)[0].appendChild(newSection);
@@ -12,13 +12,13 @@ function createSectionStructure (manufacturer, catalog, popover) {
 
     document.getElementById(`${idFromTitle(manufacturer)}`).appendChild(newH2);
 
-    for (let j=0; j<catalog.length; j++){
-        createArticleStructure(manufacturer, catalog[j], j+1)
+    for (let j = 0; j < catalog.length; j++) {
+        createArticleStructure(manufacturer, catalog[j], j + 1)
     }
     integrateButton(manufacturer, catalog, popover)
 
 }
-function createArticleStructure(manufacturer, catalog, n){
+function createArticleStructure(manufacturer, catalog, n) {
     let newArticle = document.createElement(`article`);
     newArticle.className = "my-3";
     newArticle.id = `${idFromTitle(manufacturer)}${n}`
@@ -44,7 +44,7 @@ function createArticleStructure(manufacturer, catalog, n){
     document.getElementById(`${idFromTitle(manufacturer)}${n}`).appendChild(newDivTwo);
 }
 // ------ kreiranje side menu -------------
-function integrateButton (manufacturer, catalog, popover) {
+function integrateButton(manufacturer, catalog, popover) {
     let newLiUpper = document.createElement(`li`);
     newLiUpper.className = "my-2 popover-wrapper mt-0 mb-0";
     newLiUpper.id = `${idFromTitle(manufacturer)}li`;
@@ -72,44 +72,46 @@ function integrateButton (manufacturer, catalog, popover) {
     newUl.id = `${idFromTitle(manufacturer)}-collapse`;
     document.getElementById(`${idFromTitle(manufacturer)}li`).appendChild(newUl);
 
-    for (let j=1; j<catalog.length+1; j++){
-        integrateMenu(manufacturer, catalog[j-1], j, newUl.id)
+    for (let j = 1; j < catalog.length + 1; j++) {
+        integrateMenu(manufacturer, catalog[j - 1], j, newUl.id)
     }
 }
-function integrateMenu(manufacturer, catalog, n, ul){
+function integrateMenu(manufacturer, catalog, n, ul) {
     let newLiDowner = document.createElement(`li`);
     newLiDowner.id = `${idFromTitle(manufacturer)}${n}li`
     document.getElementById(ul).appendChild(newLiDowner);
     let newA = document.createElement(`a`);
-    newA.className = `d-inline-flex align-items-center rounded text-decoration-none`;
+    newA.className = `d-inline-block align-items-center rounded text-decoration-none sideMenuCatalog`;
     newA.id = `${idFromTitle(manufacturer)}${n}A`
-    newA.innerText = trimTitle (catalog)
+    newA.innerText = trimTitle(catalog)
     newA.href = `#${idFromTitle(manufacturer)}${n}`
     document.getElementById(`${idFromTitle(manufacturer)}${n}li`).appendChild(newA);
 
     let loadPdfBtn = document.getElementById(`${idFromTitle(manufacturer)}${n}A`);
-    loadPdfBtn.addEventListener("click", function(){
+    loadPdfBtn.addEventListener("click", function () {
 
         document.getElementById(`${idFromTitle(manufacturer)}${n}`).style.display = `grid`
         document.getElementById(`${idFromTitle(manufacturer)}h2`).style.display = `block`
 
-        let newObject = document.createElement('object');
-        newObject.className = "pdff";
-        newObject.id = `${idFromTitle(manufacturer)}${n}idBtn`;
-        newObject.type = "application/pdf";
-        newObject.data = `katalozi/${manufacturer}/${catalog}.pdf`;
-
-        document.getElementsByClassName(`${idFromTitle(manufacturer)}divTwo`)[n-1].appendChild(newObject);
+        let pdfId = `${idFromTitle(manufacturer)}${n}idBtn`;
+        if (!document.getElementById(pdfId)) {
+            let newObject = document.createElement('object');
+            newObject.className = "pdff";
+            newObject.id = pdfId;
+            newObject.type = "application/pdf";
+            newObject.data = `katalozi/${manufacturer}/${catalog}.pdf`;
+            document.getElementsByClassName(`${idFromTitle(manufacturer)}divTwo`)[n - 1].appendChild(newObject);
+        }
     })
 }
 // ---------- basic, samo objects vo articles da se stavaat-----
-function trimTitle (catalogName) {
+function trimTitle(catalogName) {
     let array = catalogName.split(" ")
-    let slicedArray = array.slice(2,array.length);
+    let slicedArray = array.slice(2, array.length);
     let trimmedTitle = slicedArray.join(" ");
     return trimmedTitle
 }
-function idFromTitle (title){
+function idFromTitle(title) {
     let array = title.split(" ")
     let titleId = (array.join("")).toLowerCase();
     return titleId;
@@ -156,8 +158,8 @@ let catalogsAltec = ["Altec 1. Серија скелиња ALTEC", "Altec 2. Р�
 let manufacturersCatalogs = [catalogsCetaform, catalogsKronus, catalogsUnior, catalogsInsize, catalogsKeil, catalogsKern, catalogsKocel, catalogsVolkel, catalogsRodcraft, catalogsPiher, catalogsAltec]
 let manufacturersPopovers = [popoverCetaForm, popoverKronus, popoverUnior, popoverInsize, popoverKeil, popoverKern, popoverKocel, popoverVolkel, popoverRodcraft, popoverPiher, popoverAltec]
 
-for (let i=0; i<manufacturersCatalogs.length; i++) {
-    createSectionStructure (manufacturersNames[i], manufacturersCatalogs[i], manufacturersPopovers[i]);
+for (let i = 0; i < manufacturersCatalogs.length; i++) {
+    createSectionStructure(manufacturersNames[i], manufacturersCatalogs[i], manufacturersPopovers[i]);
 }
 
 

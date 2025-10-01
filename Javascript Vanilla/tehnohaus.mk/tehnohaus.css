@@ -344,3 +344,7 @@ svg {
 .active {
   display: block;
 }
+
+.sideMenuCatalog::first-letter {
+  color: brown;
+}
