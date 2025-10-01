@@ -14,10 +14,6 @@ body {
   margin-top: 0px !important;
 }
 
-/**
- * Bootstrap "Journal code" icon
- * @link https://icons.getbootstrap.com/icons/journal-code/
- */
 .bd-heading a::before {
   display: inline-block;
   width: 1em;
@@ -164,9 +160,7 @@ body {
 }
 
 .bd-aside .btn[aria-expanded="true"]::before {
-  transform: rotate(90deg)
-    /* rtl:ignore */
-  ;
+  transform: rotate(90deg);
 }
 
 /* Layout */
@@ -270,8 +264,7 @@ footer {
 
 .catalogsStart {
   padding-top: 0px;
-  padding-right: 0px;
-
+  padding-right: 5px;
 }
 
 #moto {
@@ -346,5 +339,5 @@ svg {
 }
 
 .sideMenuCatalog::first-letter {
-  color: brown;
+  color: rgb(169, 2, 2);
 }
