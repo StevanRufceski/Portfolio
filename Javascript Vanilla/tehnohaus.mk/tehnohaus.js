@@ -20,7 +20,7 @@ function createSectionStructure(manufacturer, catalog, popover) {
 }
 function createArticleStructure(manufacturer, catalog, n) {
     let newArticle = document.createElement(`article`);
-    newArticle.className = "my-3";
+    newArticle.className = "my-5";
     newArticle.id = `${idFromTitle(manufacturer)}${n}`
 
     newArticle.style.display = `none`
