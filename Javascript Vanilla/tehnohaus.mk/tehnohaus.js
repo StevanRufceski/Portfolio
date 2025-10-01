@@ -49,6 +49,7 @@ function integrateButton(manufacturer, catalog, popover) {
     newLiUpper.className = "my-2 popover-wrapper mt-0 mb-0";
     newLiUpper.id = `${idFromTitle(manufacturer)}li`;
     document.getElementsByClassName(`sideButtonsStart`)[0].appendChild(newLiUpper);
+
     let newButton = document.createElement(`button`);
     newButton.type = "button";
     newButton.className = "btn d-inline-flex align-items-center collapsed border-0";
@@ -60,13 +61,16 @@ function integrateButton(manufacturer, catalog, popover) {
     newButton.setAttribute('aria-controls', `${idFromTitle(manufacturer)}-collapse`);
     newButton.innerText = manufacturer;
     document.getElementById(`${idFromTitle(manufacturer)}li`).appendChild(newButton);
+
     let newDiv = document.createElement(`div`);
     newDiv.className = "popover-content";
     newDiv.id = `${idFromTitle(manufacturer)}div`;
     document.getElementById(`${idFromTitle(manufacturer)}li`).appendChild(newDiv);
+
     let newP = document.createElement(`p`);
     newP.innerText = popover;
     document.getElementById(`${idFromTitle(manufacturer)}div`).appendChild(newP);
+
     let newUl = document.createElement(`ul`);
     newUl.className = `list-unstyled ps-3 collapse`;
     newUl.id = `${idFromTitle(manufacturer)}-collapse`;
@@ -75,6 +79,15 @@ function integrateButton(manufacturer, catalog, popover) {
     for (let j = 1; j < catalog.length + 1; j++) {
         integrateMenu(manufacturer, catalog[j - 1], j, newUl.id)
     }
+
+    newButton.addEventListener("click", () => {
+        const allCollapses = document.querySelectorAll('.collapse');
+        allCollapses.forEach(ul => {
+            if (ul.id !== newUl.id) {
+                ul.classList.remove('show');
+            }
+        });
+    });
 }
 function integrateMenu(manufacturer, catalog, n, ul) {
     let newLiDowner = document.createElement(`li`);
