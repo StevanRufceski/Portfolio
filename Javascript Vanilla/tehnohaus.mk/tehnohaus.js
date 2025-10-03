@@ -3,14 +3,6 @@ function createSectionStructure(manufacturer, catalog, popover) {
     let newSection = document.createElement(`section`);
     newSection.id = idFromTitle(manufacturer);
     document.getElementsByClassName(`catalogsStart`)[0].appendChild(newSection);
-    let newH2 = document.createElement(`h2`);
-    newH2.className = "sticky-md-top fw-bold pt-3 pt-md-5 pb-2 pb-md-3";
-    newH2.id = `${idFromTitle(manufacturer)}h2`;
-    newH2.innerText = manufacturer;
-
-    newH2.style.display = `none`
-
-    document.getElementById(`${idFromTitle(manufacturer)}`).appendChild(newH2);
 
     for (let j = 0; j < catalog.length; j++) {
         createArticleStructure(manufacturer, catalog[j], j + 1)
@@ -20,16 +12,19 @@ function createSectionStructure(manufacturer, catalog, popover) {
 }
 function createArticleStructure(manufacturer, catalog, n) {
     let newArticle = document.createElement(`article`);
-    newArticle.className = "my-5";
+    newArticle.className = "mnfArticle";
     newArticle.id = `${idFromTitle(manufacturer)}${n}`
 
     newArticle.style.display = `none`
 
     document.getElementById(`${idFromTitle(manufacturer)}`).appendChild(newArticle);
     let newDivOne = document.createElement(`div`);
-    newDivOne.className = "bd-heading sticky-md-top align-self-start mt-5 mb-3 mt-md-0 mb-md-2";
+    newDivOne.className = "bd-heading sticky-md-top align-self-start mb-3 mt-md-0 mb-md-2";
     newDivOne.id = `${idFromTitle(manufacturer)}${n}divOne`
     document.getElementById(`${idFromTitle(manufacturer)}${n}`).appendChild(newDivOne);
+    let newH2 = document.createElement(`h2`);
+    newH2.innerText = manufacturer;
+    document.getElementById(`${idFromTitle(manufacturer)}${n}divOne`).appendChild(newH2);
     let newH3 = document.createElement(`h3`);
     newH3.innerText = trimTitle(catalog)
     document.getElementById(`${idFromTitle(manufacturer)}${n}divOne`).appendChild(newH3);
@@ -104,7 +99,6 @@ function integrateMenu(manufacturer, catalog, n, ul) {
     loadPdfBtn.addEventListener("click", function () {
 
         document.getElementById(`${idFromTitle(manufacturer)}${n}`).style.display = `grid`
-        document.getElementById(`${idFromTitle(manufacturer)}h2`).style.display = `block`
 
         let pdfId = `${idFromTitle(manufacturer)}${n}idBtn`;
         if (!document.getElementById(pdfId)) {

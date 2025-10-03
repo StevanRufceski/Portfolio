@@ -72,11 +72,10 @@ body {
   padding-top: 4rem;
 }
 
-/* Layout */
-.bd-cheatsheet section article h2 {
-  display: none;
-  visibility: hidden;
+.mnfArticle{
+  margin-top: 1rem;
 }
+/* Layout */
 
 .bd-cheatsheet,
 .bd-cheatsheet section,
@@ -88,26 +87,17 @@ body {
   gap: inherit;
 }
 
-.bd-cheatsheet section,
-.bd-cheatsheet section>h2 {
+.bd-cheatsheet section {
   top: 2rem;
   scroll-margin-top: 2rem;
 }
 
-.bd-cheatsheet section>h2::before {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: -2rem;
-  left: 0;
-  z-index: -1;
-  content: "";
-}
+
 
 .bd-cheatsheet article,
 .bd-cheatsheet .bd-heading {
-  top: 8rem;
-  scroll-margin-top: 8rem;
+  top: 4.5rem;
+  scroll-margin-top: 4.5rem;
 }
 
 .bd-cheatsheet .bd-heading {
@@ -116,7 +106,7 @@ body {
 
 /* */
 
-/* TEKSTOVI: .bd-cheatsheet section h2, .bd-cheatsheet section h3, .bd-cheatsheet article a, .h6, .btn, .rounded */
+/* TEKSTOVI: */
 @media (max-width: 810px) {
   .companyImage {
     height: 6.5rem;
