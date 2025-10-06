@@ -136,8 +136,12 @@ body {
   }
 
   .bd-aside h2 {
-    /* font-size: x-large; */
     padding-left: 9px;
+  }
+
+  .popover-content p,
+  .pFooter {
+    font-size: small;
   }
 }
 
@@ -165,8 +169,10 @@ body {
     font-size: large;
     padding-left: 6px;
   }
-    .popover-content p {
-    font-size: small;
+
+  .popover-content p,
+  .pFooter {
+    font-size: x-small;
   }
 }
 
@@ -184,8 +190,9 @@ body {
     padding-left: 3px;
   }
 
-  .popover-content p {
-    font-size: x-small;
+  .popover-content p,
+  .pFooter {
+    font-size: xx-small;
   }
 }
 
