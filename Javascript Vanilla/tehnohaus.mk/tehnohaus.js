@@ -97,8 +97,8 @@ function integrateMenu(manufacturer, catalog, n, ul) {
 
     let loadPdfBtn = document.getElementById(`${idFromTitle(manufacturer)}${n}A`);
     loadPdfBtn.addEventListener("click", function () {
-
-        document.getElementById(`${idFromTitle(manufacturer)}${n}`).style.display = `grid`
+        const articleEl = document.getElementById(`${idFromTitle(manufacturer)}${n}`)
+        articleEl.style.display = `grid`
 
         let pdfId = `${idFromTitle(manufacturer)}${n}idBtn`;
         if (!document.getElementById(pdfId)) {
@@ -109,6 +109,9 @@ function integrateMenu(manufacturer, catalog, n, ul) {
             newObject.data = `katalozi/${manufacturer}/${catalog}.pdf`;
             document.getElementsByClassName(`${idFromTitle(manufacturer)}divTwo`)[n - 1].appendChild(newObject);
         }
+        setTimeout(() => {
+            articleEl.scrollIntoView({ behavior: "auto", block: "start" });
+        }, 100);
     })
 }
 // ---------- basic, samo objects vo articles da se stavaat-----
