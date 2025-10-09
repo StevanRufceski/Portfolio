@@ -169,5 +169,35 @@ for (let i = 0; i < manufacturersCatalogs.length; i++) {
     createSectionStructure(manufacturersNames[i], manufacturersCatalogs[i], manufacturersPopovers[i]);
 }
 
+// ---------- za da moze da se prakja link do katalog, na facebook-----
+window.addEventListener("DOMContentLoaded", () => {
+    const hash = window.location.hash;
+    if (hash) {
+        const targetId = hash.substring(1);
+        const targetElement = document.getElementById(targetId);
+
+        if (targetElement) {
+            targetElement.style.display = "grid";
+            const manufacturer = manufacturersNames.find(name => targetId.startsWith(idFromTitle(name)));
+            if (manufacturer) {
+                const number = targetId.replace(idFromTitle(manufacturer), "");
+                const n = parseInt(number, 10);
+                const catalogName = manufacturersCatalogs[manufacturersNames.indexOf(manufacturer)][n - 1];
+
+                const pdfId = `${idFromTitle(manufacturer)}${n}idBtn`;
+                if (!document.getElementById(pdfId)) {
+                    const newObject = document.createElement('object');
+                    newObject.className = "pdff";
+                    newObject.id = pdfId;
+                    newObject.type = "application/pdf";
+                    newObject.data = `katalozi/${manufacturer}/${catalogName}.pdf`;
+                    document.getElementsByClassName(`${idFromTitle(manufacturer)}divTwo`)[n - 1].appendChild(newObject);
+                }
+            }
+        }
+    }
+});
+
+
 
 
