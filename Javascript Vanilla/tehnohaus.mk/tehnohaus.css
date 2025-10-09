@@ -319,49 +319,17 @@ footer {
   aspect-ratio: 9 / 4;
 }
 
-#slide1 {
-  background-image: url('../tehnohaus.mk/images/slide1.jpg');
-}
-
-#slide2 {
-  background-image: url('../tehnohaus.mk/images/slide22.jpg');
-}
-
-#slide3 {
-  background-image: url('../tehnohaus.mk/images/slide3.jpg');
-}
-
-#slide4 {
-  background-image: url('../tehnohaus.mk/images/slide4.jpg');
-}
-
-#slide5 {
-  background-image: url('../tehnohaus.mk/images/slide5.jpg');
-}
-
-#slide6 {
-  background-image: url('../tehnohaus.mk/images/slide6.jpg');
-}
-
-#slide7 {
-  background-image: url('../tehnohaus.mk/images/slide7.jpg');
-}
-
-#slide8 {
-  background-image: url('../tehnohaus.mk/images/slide8.jpg');
-}
-
-#slide9 {
-  background-image: url('../tehnohaus.mk/images/slide9.jpg');
-}
-
-#slide10 {
-  background-image: url('../tehnohaus.mk/images/slide10.jpg');
-}
-
-#slide11 {
-  background-image: url('../tehnohaus.mk/images/slide11.jpg');
-}
+#slide1 {background-image: url('images/slide1.jpg');}
+#slide2 {background-image: url('images/slide22.jpg');}
+#slide3 {background-image: url('images/slide3.jpg');}
+#slide4 {background-image: url('images/slide4.jpg');}
+#slide5 {background-image: url('images/slide5.jpg');}
+#slide6 {background-image: url('images/slide6.jpg');}
+#slide7 {background-image: url('images/slide7.jpg');}
+#slide8 {background-image: url('images/slide8.jpg');}
+#slide9 {background-image: url('images/slide9.jpg');}
+#slide10 {background-image: url('images/slide10.jpg');}
+#slide11 {background-image: url('images/slide11.jpg');}
 
 svg {
   opacity: 0.75;
