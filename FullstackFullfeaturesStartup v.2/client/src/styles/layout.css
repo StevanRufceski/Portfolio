@@ -1,0 +1,9 @@
+.page-container {
+  background: var(--card-bg);
+  padding: 30px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  margin: 20px auto;
+  max-width: 900px;
+  animation: fadeUp .45s ease;
+}
